@@ -42,7 +42,14 @@ LOCALE_PATHS = [str(ROOT_DIR / "locale")]
 # https://docs.djangoproject.com/en/dev/ref/settings/#databases
 
 DATABASES = {
-    "default": env.db("DATABASE_URL", default='sqlite:////backend.db'),
+    "default": {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'ecommerce_backend',
+        'USER': 'root',
+        'PASSWORD': '12345',
+        'HOST': '',
+        'PORT': '',
+    }
 }
 DATABASES["default"]["ATOMIC_REQUESTS"] = True
 # https://docs.djangoproject.com/en/stable/ref/settings/#std:setting-DEFAULT_AUTO_FIELD
